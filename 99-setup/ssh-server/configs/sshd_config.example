@@ -1,0 +1,3 @@
+# Ejemplo de configuracion para SSH con puerto cambiado a 2222
+
+Port 2222
