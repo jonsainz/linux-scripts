@@ -1,6 +1,6 @@
 # Linux Scripts de mantenimiento
 
-Este repositorio contiene una coleccion organizada de scripts de shell diseñadas para administracion, seguridad, monitorizacion y mantenimiento de sistemas operativos basados en Linux.
+Este repositorio contiene una coleccion organizada de scripts de shell diseñadas para administracion, seguridad, monitorizacion y mantenimiento de sistemas operativos Linux basados en Debian.
 
 ## Estructura del proyecto
 
