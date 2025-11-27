@@ -1,6 +1,6 @@
-#Linux Scripts de mantenimiento
+# Linux Scripts de mantenimiento
 
-Este repositorio contiene una coleccion organizada de scripts de shell diseñadas para administracion, seguridad, monitorizacion y mantenimiento de sistemas operativos basados en Linux
+Este repositorio contiene una coleccion organizada de scripts de shell diseñadas para administracion, seguridad, monitorizacion y mantenimiento de sistemas operativos basados en Linux.
 
 ## Estructura del proyecto
 
@@ -15,7 +15,7 @@ Este repositorio contiene una coleccion organizada de scripts de shell diseñada
 
 ### 01. Core / Mantenimiento General
 
-	- actualizar-sistema: 	Actualizacion del sistema
+	- actualizar-sistema: 			Actualizacion del sistema
 
 ### 02. Security
 
@@ -25,17 +25,18 @@ Este repositorio contiene una coleccion organizada de scripts de shell diseñada
 
 ### 99. Setup
 
-	- ssh-server: 		Servidor para acceso remoto 
+	- ssh-server: 					Servidor para acceso remoto 
 
 ## Uso e instalacion
 
-	1. Descarga la reposicion
+**1. Descarga la reposicion**
+		
 		bash
-		get clone http://
+		get clone https://github.com/jonsainz/linux-scripts.git
 	
-	2. Navega por la reposicion y seleciona el script que deseas utilizar entrando en la carpeta
+**2. Navega por la reposicion y seleciona el script que deseas utilizar entrando en la carpeta**
 
-	3. Lee el README.md de cada script para mas infomracion de uso
+**3. Lee el README.md de cada script para mas infomracion de uso**
 
 ## Licencia
 
@@ -43,5 +44,5 @@ Todos los scripts son libres de uso.
 
 ## Contacto
 
-**Usuario:** 	jonsainz
-**e-mail**	jon.sainz@icloud.com
+	Usuario: 	jonsainz
+	E-mail:		jon.sainz@icloud.com
