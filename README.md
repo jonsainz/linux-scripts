@@ -15,7 +15,7 @@ Este repositorio contiene una coleccion organizada de scripts de shell diseñada
 
 ### 01. Core / Mantenimiento General
 
-	- actualizar-sistema: 			Actualizacion del sistema
+	- actualizar-sistema: Actualizacion y limpieza del sistema. 
 
 ### 02. Security
 

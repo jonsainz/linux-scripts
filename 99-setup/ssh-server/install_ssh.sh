@@ -59,7 +59,6 @@ sudo systemctl enable ssh
 echo "Cambiando puerto del SSH a 2222..."
 
 # sed -> Comando para editar textos
-# TENGO QUE PONER SIMPRE SUDO O CON LA PRIMERA YA VALE?
 
 sudo sed -i 's/^#Port 22/Port 2222/' /etc/ssh/sshd_config
 
@@ -79,8 +78,7 @@ sudo systemctl restart ssh
 echo "Configurando Firewall..."
 sudo ufw enable
 sudo ufw allow 2222/tcp
-sudo ufw allow OpenSSH
-	# Activar el puerto 22 por si falla.
+sudo ufw dny 22/tcp
 sudo ufw --force enable
 	# --force -> Evita que el script se detenga pidiendo confirmacion interactiva
 
