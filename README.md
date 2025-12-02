@@ -32,7 +32,7 @@ Este repositorio contiene una coleccion organizada de scripts de shell diseñada
 **1. Descarga la reposicion**
 		
 		bash
-		get clone https://github.com/jonsainz/linux-scripts.git
+		git clone https://github.com/jonsainz/linux-scripts.git
 	
 **2. Navega por la reposicion y seleciona el script que deseas utilizar entrando en la carpeta**
 

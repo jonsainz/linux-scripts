@@ -1,13 +1,11 @@
 # Proyecto Actualizar sistema
 
-Este es el primer proyecto que subo a Github. Simplemente una prueba de como se sube y como se hacen cambios.
-El proyecto en si es muy simple. simplemente una actualización del sistema en distribuciones Debian o Redhat.
+Es una actualización y limpieza del sistema en distribuciones Debian o Redhat.
 
 ## Caracteristicas
 
 - Actualiza en distribuciones Debian o Redhat
-- Actualiza con update
-- Actualiza con upgrade
+- Limpia todos los archivos inecesarios.
 
 ## Requisitos
 
@@ -17,13 +15,13 @@ El proyecto en si es muy simple. simplemente una actualización del sistema en d
 
 1. Clona el repositorio
 
-	```bash
+	bash
 	git clone https://github.com/jonsainz/actualizar-sistema.git
-	```
+	
 2. Entra en el proyecto
 
 3. Ejecutar script
 
-	```bash
+	bash
 	sudo ./actualizar.sh
-	```
+

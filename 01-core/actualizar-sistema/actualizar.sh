@@ -17,3 +17,30 @@ sudo apt upgrade -y 2>/dev/null || sudo dnf upgrade -y
 
 echo -e "\nActualizacion realizada.\n"
 
+
+echo "\nLimpieza de archivos...\n"
+
+sudo apt autoclean -y 2>/dev/null || sudo dnf clean all -y
+sudo apt clean -y 2>/dev/null || sudo dnf autoremove -y
+sudo apt autoremove --purge -y 2>/dev/null || sudo systemd-tmpfiles --clean 
+
+echo "\nLimpiezza lista\n"
+
+# Archivos temporales
+sudo rm -rf /temp/* 2>/dev/null
+sudo rm -rf /var/temp/* 2>/dev/null
+
+# Archivos de cache
+sudo rm -rf ~/.cache 2>/dev/null
+sudo rm -rf /var/cache/* 2>/dev/null
+
+# Archiovs de Thumbnails
+sudo rm -rf ~/.cache/thumbnails/* 2>/dev/null
+
+# Archivos de logs
+sudo journalctl --vacumm-size=200M
+
+# Archivos de Coredumps
+sudo rm -rf /var/lib/systemd/coredump/* 2>/dev/null
+
+
