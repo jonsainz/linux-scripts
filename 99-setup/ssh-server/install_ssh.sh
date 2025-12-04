@@ -116,7 +116,17 @@ sudo systemctl status ssh --no-pager
 # Reinicamos el sistema
 #--------------------------------
 
-sudo reboot
+echo -e -n "\nPulsa cualquier tecla para reiniciaro pulsa (s) para salir del script y no reiniciar:"
+
+read opcion2
+case "$opcion2" in
+	s | S)
+		exit 0
+		;;
+	*)
+		sudo reboot
+		;;
+esac
 
 
 
