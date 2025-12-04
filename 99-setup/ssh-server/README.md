@@ -8,12 +8,15 @@ Tambien configura el Firewall para permitir la entrada en ese puerto.
 
 ## Caracteristicas
 
+- Te obliga a instalar el script como super usuario.
 - Instala el servidor OpenSSH (si no esta instalado).
-- Cambia el puerto por defecto (**22**) por el puerto (**2222**).
+- Cambia el puerto por defecto **22** por el puerto **2222**.
+- Cierra el puerto ** 22**.
 - Habilita y configura el firewall **ufw**.
-- Abre el puerto 2222 en el firewall.
+- Abre el puerto **2222** en el firewall.
 - Reinicia el servidor SSH para activar cambios.
 - El usuario no necesita interactuar.
+- Reinicia automaticamente el sistema.
 
 ---
 
@@ -29,10 +32,15 @@ Tambien configura el Firewall para permitir la entrada en ese puerto.
 
 1. Clona el repositorio
 
-```bash
-gitclone https://github.com/......git
+	bash
+	gitclone https://github.com/......git
+
+2. Ejecuta el script
+
+	bash
+	./instalar_ssh.sh
 
 ---
 
-[Documentacion](https://ejemplo.com)
+
 

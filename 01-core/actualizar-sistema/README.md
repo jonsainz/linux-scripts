@@ -4,6 +4,7 @@ Es una actualización y limpieza del sistema en distribuciones Debian o Redhat.
 
 ## Caracteristicas
 
+- Te obliga a ejecutarlo como super usuario
 - Actualiza en distribuciones Debian o Redhat
 - Limpia todos los archivos inecesarios.
 

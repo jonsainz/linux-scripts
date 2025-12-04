@@ -29,6 +29,28 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 #-----------------------------
+# Pregunta si quiere continuar
+#-----------------------------
+
+echo -e "\nAtencion: Este script reiniciara el sistema despues de acabar la instalacion\n"
+echo -n "Desea continuar? (s/n):"
+
+read opcion
+case "$opcion" in
+	s | S)
+		echo "Continuando con la instalacion..."
+		;;
+	n | N)
+		echo "Saliendo del script de instalacion..."
+		exit 0
+		;;
+	*)
+		echo "Opcion no valida. Saliendo del script de instalacion..."
+		exit 1
+		;;
+esac
+
+#-----------------------------
 # Actualizar sistema operativo
 #-----------------------------
 
@@ -78,7 +100,7 @@ sudo systemctl restart ssh
 echo "Configurando Firewall..."
 sudo ufw enable
 sudo ufw allow 2222/tcp
-sudo ufw dny 22/tcp
+sudo ufw deny 22/tcp
 sudo ufw --force enable
 	# --force -> Evita que el script se detenga pidiendo confirmacion interactiva
 
@@ -89,6 +111,12 @@ sudo ufw --force enable
 echo "Instalacion servidor SSH Finalizada"
 sudo systemctl status ssh --no-pager
 	# --no-pager -> Evita que la salida se detenga y requiera pulsar Enter
+
+#---------------------------------
+# Reinicamos el sistema
+#--------------------------------
+
+sudo reboot
 
 
 
