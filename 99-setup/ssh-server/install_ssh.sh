@@ -23,7 +23,7 @@ if [[ $EUID -ne 0 ]]; then
 
 # -ne -> Not Equal
 
-	echo "Para ejecutar este script que instalala el servidor SSH y sus configuraciones hace falta ejecutarlo como Root"
+	echo -e "\nPara ejecutar este script que instalala el servidor SSH y sus configuraciones hace falta ejecutarlo como Root\n"
 	exit 1
 	# exit 1 -> Termina el script
 fi
