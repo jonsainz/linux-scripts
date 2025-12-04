@@ -54,7 +54,7 @@ esac
 # Actualizar sistema operativo
 #-----------------------------
 
-echo "Actualizando paquetes..."
+echo -e "\nActualizando paquetes...\n"
 sudo apt update -y
 sudo apt upgrade -y
 
@@ -62,14 +62,16 @@ sudo apt upgrade -y
 # Instalar SSH y Firewall
 #------------------------
 
-echo "Instalando servidor SSH..."
+echo -e "\nInstalando servidor SSH...\n"
 sudo apt install openssh-server -y
-echo "Instalando Firewall..."
+echo -e "\nInstalando Firewall...\n"
 sudo apt install ufw -y
 
 #---------------------
 # Iniciar Servidor SSH
 #---------------------
+
+echo -e "\nIniciando Servidor SSH\n"
 
 sudo systemctl start ssh
 sudo systemctl enable ssh
@@ -78,8 +80,7 @@ sudo systemctl enable ssh
 # Cambiando puerto por defecto 22 a 2222 del servidor SSH
 #--------------------------------------------------------
 
-echo "Cambiando puerto del SSH a 2222..."
-
+echo -e "\nCambiando puerto del SSH a 2222...\n
 # sed -> Comando para editar textos
 
 sudo sed -i 's/^#Port 22/Port 2222/' /etc/ssh/sshd_config
@@ -90,14 +91,15 @@ sudo sed -i 's/^#Port 22/Port 2222/' /etc/ssh/sshd_config
 		# Port 2222 -> El reemplazo
 	# /etc/ssh/sshd_config -> EL archivo de configuracion del servidor SSH
 
-echo "Reiniciando servidor SSH..."
+echo -e "\nReiniciando servidor SSH...\n"
+
 sudo systemctl restart ssh
 
 #----------------------
 # Configurando Firewall
 #----------------------
 
-echo "Configurando Firewall..."
+echo -e "\nConfigurando Firewall...\n"
 sudo ufw enable
 sudo ufw allow 2222/tcp
 sudo ufw deny 22/tcp
@@ -108,23 +110,28 @@ sudo ufw --force enable
 # Final del Script y verificacion
 #--------------------------------
 
-echo "Instalacion servidor SSH Finalizada"
+echo -e "\nInstalacion servidor SSH Finalizada\n"
 sudo systemctl status ssh --no-pager
 	# --no-pager -> Evita que la salida se detenga y requiera pulsar Enter
 
 #---------------------------------
 # Reinicamos el sistema
 #--------------------------------
+echo -e "\nSe puede ver que esta escuchando el Puerto 22, pero al reiniciar escuchara al Puerto 2222\n"
 
-echo -e -n "\nPulsa cualquier tecla para reiniciaro pulsa (s) para salir del script y no reiniciar:"
+echo -e -n "\nQuiere reiniciar? (s/n):  "
 
 read opcion2
 case "$opcion2" in
 	s | S)
+		sudo reboot
+		;;
+	n | N)
 		exit 0
 		;;
 	*)
-		sudo reboot
+		echo -e "\nError al introducir respuesta. Saliendo del script...\n"
+		exit 1
 		;;
 esac
 
