@@ -33,15 +33,15 @@ fi
 #-----------------------------
 
 echo -e "\nAtencion: Este script reiniciara el sistema despues de acabar la instalacion\n"
-echo -n "Desea continuar? (s/n):"
+echo -n -e "\nDesea continuar? (s/n): "
 
 read opcion
 case "$opcion" in
 	s | S)
-		echo "Continuando con la instalacion..."
+		echo -e "\nContinuando con la instalacion...\n"
 		;;
 	n | N)
-		echo "Saliendo del script de instalacion..."
+		echo -e "\nSaliendo del script de instalacion...\n"
 		exit 0
 		;;
 	*)
