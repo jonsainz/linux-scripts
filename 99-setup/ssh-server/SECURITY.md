@@ -13,7 +13,8 @@ Instrucciones para hacer SSH mas seguro.
 
 sudo nano /etc/ssh/sshd_config
 
-PasswordAuthentication no <br>
+PasswordAuthentication yes<br>
+ESTO LUEGO HAY QUE PONER NO AL ACABAR<br>
 ChallengeResponseAuthentication no <br>
 PubkeyAuthentication yes <br>
 
