@@ -86,9 +86,16 @@ Zerotier
 Te conectas como si estuvieras en LAN → SSH normal
 🔒 Casi imposible de atacar
 
+SUPER CLAVE:
 
+si quieres meter mas ordenadores con claves SSH, tiene que volver a cambiar dento de sshd_config:
+
+PasswordAuthentication yes
+
+con esto crear las claves como antes. Despues de crear las claves vuelve a cambiarlo a NO
 
 -------------------
+si te da algun error comprueba esto antes de vovler a hacer ssh-copy.....
 
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
