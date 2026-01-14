@@ -11,7 +11,7 @@ Instrucciones para hacer SSH mas seguro.
 
 1) Desactivar login por contraseña:
 
-sudo nano /etc/ssh/ssh_config
+sudo nano /etc/ssh/sshd_config
 
 PasswordAuthentication no <br>
 ChallengeResponseAuthentication no <br>
@@ -33,7 +33,7 @@ ssh -p 2222 usuario@IP_DEL_SERVIDOR
 
 3) No usar root directamente
 
-- en ssh_config
+- en sshd_config
 
 PermitRootLogin no
 
@@ -46,7 +46,7 @@ sudo systemctl enable --now fail2ban
 
 ## Resumen
 
-en /etc/ssh/ssh_config
+en /etc/ssh/sshd_config
 
 Port 2222 <br>
 PermitRootLogin no <br>
