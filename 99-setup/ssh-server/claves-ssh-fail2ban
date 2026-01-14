@@ -1,0 +1,36 @@
+# Seguridad con claves SSH y mas seguridad
+
+## Instrucciones
+
+1) En el archivo /etc/ssh/sshd_config
+
+Port 2222
+PermitRootLogin no
+PasswordAuthentication yes (DESPUES CAMBIAMOS A NO)
+ChallengeResponseAuthentication no
+PubkeyAuthentication yes
+AllowUsers (NOMBRE DE USUSARIOS QUE QUIERES QUE ENTREN)
+
+Despues:
+
+sudo systemctl restart sshd
+
+2) Crear claves SSH en el rodenador cliente. el ordenador donde queires acceder al servidor
+
+ssh-keygen -t ed25519 (Esto solo hace falta una vex si queires ahcer en mas ordenadors)
+
+ssh-copy-id -p 2222 usuario@IP_DEL_SERVIDOR (Puedes crear clave para mas seguirdad)
+
+3) despues editamos otra vez el archivo sshd_conifg
+
+cmabiamos el PasswordAuthentication yes a no
+
+sudo systemctl restart sshd
+
+4) Instalamos fail2ban
+
+sudo dnf install fail2ban -y 
+sudo systemctl enable --now fail2ban
+
+LISTO
+
