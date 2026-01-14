@@ -13,21 +13,22 @@ Instrucciones para hacer SSH mas seguro.
 
 sudo nano /etc/ssh/ssh_config
 
-PasswordAuthentication no
-ChallengeResponseAuthentication no
-PubkeyAuthentication yes             (
+PasswordAuthentication no <br>
+ChallengeResponseAuthentication no <br>
+PubkeyAuthentication yes <br>
 
-sudo systemctl restart ssh
+sudo systemctl restart sshd
 
 2) Usar claves SSH
 
+* Esto en el ordenador que uses para entrar a traves de ssh <br>
 ssh-keygen -t ed25519
 - Enter a todo. pon una passphrase si quieres mas seguridad
 
 ssh-copy-id -p 2222 usuario@IP_DEL_SERVIDOR
 - Copia la clave al servidor
 
-ssh-copy-id -p 2222 usuario@IP_DEL_SERVIDOR
+ssh -p 2222 usuario@IP_DEL_SERVIDOR
 - Si entra sin contraseña. Todo correcto
 
 3) No usar root directamente
@@ -47,12 +48,12 @@ sudo systemctl enable --now fail2ban
 
 en /etc/ssh/ssh_config
 
-Port 2222
-PermitRootLogin no
-PasswordAuthentication no
-ChallengeResponseAuthentication no
-PubkeyAuthentication yes
-AllowUsers siz
+Port 2222 <br>
+PermitRootLogin no <br>
+PasswordAuthentication no <br>
+ChallengeResponseAuthentication no <br>
+PubkeyAuthentication yes <br>
+AllowUsers siz <br>
 
 
 
@@ -68,5 +69,36 @@ Antes de abrirlo a Internet, asegúrate de tener:
 ✔️ PermitRootLogin no
 ✔️ Fail2ban activo
 ✔️ Usuario normal + sudo
+
+
+Por ultimo:
+
+7️⃣ Alternativa MUCHO más segura (te la dejo caer 😏)
+
+👉 No exponer SSH directamente
+
+WireGuard
+
+Tailscale
+
+Zerotier
+
+Te conectas como si estuvieras en LAN → SSH normal
+🔒 Casi imposible de atacar
+
+
+
+-------------------
+
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+ssh-copy-id -p 2222 siz@IP_DEL_SERVIDOR
+
+
+y probar: ssh -p 2222 siz@IP_DEL_SERVIDOR
+
 
 
