@@ -2,7 +2,7 @@
 
 ## Instrucciones
 
-1) En el archivo /etc/ssh/sshd_config
+1) En el archivo /etc/ssh/sshd_config (En el PC Servidor)
 
 Port 2222
 PermitRootLogin no
@@ -15,11 +15,11 @@ Despues:
 
 sudo systemctl restart sshd
 
-2) Crear claves SSH en el rodenador cliente. el ordenador donde queires acceder al servidor
+2) Crear claves SSH en el ordenador Cliente. el ordenador donde quieres acceder al servidor
 
-ssh-keygen -t ed25519 (Esto solo hace falta una vex si queires ahcer en mas ordenadors)
+ssh-keygen -t ed25519 (Esto solo hace falta una vez si queires hacer en mas ordenadores)
 
-ssh-copy-id -p 2222 usuario@IP_DEL_SERVIDOR (Puedes crear clave para mas seguirdad)
+ssh-copy-id -p 2222 usuario@IP_DEL_SERVIDOR (Puedes crear clave para mas seguirdad, passphrase)
 
 3) despues editamos otra vez el archivo sshd_conifg
 
@@ -53,5 +53,30 @@ ej:
 scp -P 2222 usuario@192.168.1.45:/home/usuario/documento.pdf ~/Downloads/
 ahora:
 scp fedora:documento.pdf ~/Downloads/
+
+- Como crear el Alias en tu ordnador cliente:
+
+editar o crear este archivo:
+
+~/.ssh/conifg
+
+Host ALIAS
+    HostName IP
+    User tu_usuario_de_fedora
+    Port 2222
+    IdentityFile ~/.ssh/id_rsa (Por defecto) -> mirar en carpeta ~/.ssh/ un archivo .pub. Ese es el nombre a poner
+
+* Si no quieres meter la contraseña passphrase de las llaves SSH cada vez, puedes incluir esto en Host ALIAS:
+
+    UseKeychain yes
+    AddKeysToAgent yes
+    
+
+permisos: 
+chmod 700 ~/.ssh
+chmod 600 config
+sudo chown -R TUUSUARIO ~/.ssh
+
+
 
 
