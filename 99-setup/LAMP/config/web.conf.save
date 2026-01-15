@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+<VirtualHost *:80>
+
+	ServerName localhost
+	# ServerName web.duckdns.org
+
+	ServerAdmin webmaster@localhost
+    	# ServerName web.duckdns.org
+
+	DocumentRoot /var/www/web/html
+
+		<Directory /var/www/web/html>
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+		</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error_web.log
+	CustomLog ${APACHE_LOG_DIR}/access_web.log combined
+
+</VirtualHost>
