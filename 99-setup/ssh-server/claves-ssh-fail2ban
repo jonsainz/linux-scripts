@@ -34,3 +34,24 @@ sudo systemctl enable --now fail2ban
 
 LISTO
 
+--------------
+
+Extras:
+
+* Abrir SSH a internet: Usar Tailscale. Esta aplicacion crea una VPN y no necesitas abrir puertos en el router para conectarte via SSH
+
+* Como hacer un alias para no tener que escribir USUARIO@IP -p 2222, usarias solo NOMBRE
+
+ej: en vez de usar:
+ssh -p 2222 usuario@192.168.1.45 
+usarias:
+ssh NOMBRE
+
+* Copiar archivos:
+No hay que conectarse por ssh. lo tienes que hacer desde tu terminal.
+ej:
+scp -P 2222 usuario@192.168.1.45:/home/usuario/documento.pdf ~/Downloads/
+ahora:
+scp fedora:documento.pdf ~/Downloads/
+
+
