@@ -80,7 +80,7 @@ sudo systemctl enable ssh
 # Cambiando puerto por defecto 22 a 2222 del servidor SSH
 #--------------------------------------------------------
 
-echo -e "\nCambiando puerto del SSH a 2222...\n
+echo -e "\nCambiando puerto del SSH a 2222...\n"
 # sed -> Comando para editar textos
 
 sudo sed -i 's/^#Port 22/Port 2222/' /etc/ssh/sshd_config
