@@ -24,6 +24,11 @@ Esto le dirá a Fedora: "Cualquier cosa que venga desde la red 10.0.2.x, descár
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" drop'
 sudo firewall-cmd --reload
 
+sudo firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" reject'
+sudo firewall-cmd --permanent --zone=fedora --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" reject'
+sudo firewall-cmd --reload
+
+
 Si ahora intentas hacer ping 192.168.1.155 desde la VM, no recibirás respuesta (se quedará en "timeout").
 • Escaneo bloqueado: Si alguien intenta usar nmap desde la VM hacia tu Fedora, todos los puertos aparecerán como "filtered" o simplemente no encontrará el host.
 • Internet sigue funcionando: Tu VM podrá seguir navegando por la web y sirviendo tu página, porque el tráfico hacia internet no pasa por las reglas de entrada de tu host Fedora.
