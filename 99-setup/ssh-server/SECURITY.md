@@ -1,5 +1,14 @@
-# Seguirdad en SSH
+# Seguirdad en SSH BORRAR. MIRAR CON EL OTRO
 
+
+- BORRAR MIRAR CON EL OTRO
+
+
+
+
+--
+
+---
 Instrucciones para hacer SSH mas seguro.
 
 - Desactivar login por contraseña
@@ -72,20 +81,19 @@ Antes de abrirlo a Internet, asegúrate de tener:
 ✔️ Usuario normal + sudo
 
 
-Por ultimo:
+TAILSCALE: (genera un VPN para ssh, ASI NOI ABRO PUERTOS EN MI ROUTER )
 
-7️⃣ Alternativa MUCHO más segura (te la dejo caer 😏)
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+sudo ufw allow in on tailscale0
 
-👉 No exponer SSH directamente
+Lo que pasará ahora:
 
-WireGuard
+    Aparecerá un enlace (URL) en la terminal.
 
-Tailscale
+    Cópialo y pégalo en el navegador de tu ordenador personal.
 
-Zerotier
-
-Te conectas como si estuvieras en LAN → SSH normal
-🔒 Casi imposible de atacar
+    Inicia sesión con tu cuenta
 
 SUPER CLAVE:
 
