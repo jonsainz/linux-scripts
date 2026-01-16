@@ -5,24 +5,24 @@ sudo fail2ban-client status
 sudo fail2ban-client status sshd
 
 
-#!/bin/bash
+# 1. Detectar el usuario real que lanzó el sudo
+# Si no hay sudo, usamos el usuario actual
+REAL_USER=${SUDO_USER:-$(whoami)}
+REAL_HOME=$(getent passwd "$REAL_USER" | cut -d: -f6)
 
-# 1. Detectar el usuario actual y su carpeta HOME
-USUARIO=$(whoami)
-DESTINO="/home/$USUARIO/logs"
+# 2. Definir destino en la carpeta personal del usuario real
+DESTINO="$REAL_HOME/mis_logs_fail2ban"
 
-# 2. Crear la carpeta si no existe
-# -p asegura que no de error si ya existe y crea la ruta completa
+# 3. Crear la carpeta
 mkdir -p "$DESTINO"
 
-# 3. Copiar el log
-# Usamos sudo cp porque el log original suele ser solo lectura para root
+# 4. Copiar el log
 FECHA=$(date +"%Y-%m-%d_%H-%M")
-sudo cp /var/log/fail2ban.log "$DESTINO/fail2ban_$FECHA.log"
+cp /var/log/fail2ban.log "$DESTINO/fail2ban_$FECHA.log"
 
-# 4. Cambiar el dueño del nuevo archivo al usuario actual
-# (Al usar sudo cp, el dueño sería root; esto lo devuelve a tu usuario)
-sudo chown $USUARIO:$USUARIO "$DESTINO/fail2ban_$FECHA.log"
+# 5. Cambiar el dueño de la CARPETA y el ARCHIVO al usuario real
+# Esto arregla el problema de que root sea el dueño
+chown -R "$REAL_USER:$REAL_USER" "$DESTINO"
 
-echo -e "\nHola $USUARIO, el log de fail2ban se ha copiado a: $DESTINO\n"
-
+echo "Hecho. El log se ha guardado en: $DESTINO"
+echo "El dueño de los archivos es: $REAL_USER"
