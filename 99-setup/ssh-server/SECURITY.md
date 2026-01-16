@@ -1,5 +1,14 @@
-# Seguirdad en SSH
+# Seguirdad en SSH BORRAR. MIRAR CON EL OTRO
 
+
+- BORRAR MIRAR CON EL OTRO
+
+
+
+
+--
+
+---
 Instrucciones para hacer SSH mas seguro.
 
 - Desactivar login por contraseña
