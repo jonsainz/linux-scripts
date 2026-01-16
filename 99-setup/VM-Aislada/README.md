@@ -24,8 +24,12 @@ Esto le dirá a Fedora: "Cualquier cosa que venga desde la red 10.0.2.x, descár
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" drop'
 sudo firewall-cmd --reload
 
+sudo firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" 
 sudo firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" reject'
-sudo firewall-cmd --permanent --zone=fedora --add-rich-rule='rule family="ipv4" source address="10.0.2.0/24" reject'
+
+
+
+
 sudo firewall-cmd --reload
 
 
