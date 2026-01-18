@@ -67,10 +67,19 @@ Host ALIAS
     IdentityFile ~/.ssh/id_rsa (Por defecto) -> mirar en carpeta ~/.ssh/ un archivo .pub. Ese es el nombre a poner
 
 * Si no quieres meter la contraseña passphrase de las llaves SSH cada vez, puedes incluir esto en Host ALIAS:
-
+SOLO PARA MAC   
     UseKeychain yes
-    AddKeysToAgent yes
     
+Este meterlo en mac y linux, da igual
+AddKeysToAgent yes (Esto hace que si meto una vezx la contraseña no tenga que meterla mas)
+
+en fedora:
+sudo dnf install openssh-askpass
+
+luego cuando entres en el escritorio te pide una vez la contraseña y ya esta
+
+
+Para LINUX:
 
 permisos: 
 chmod 700 ~/.ssh
