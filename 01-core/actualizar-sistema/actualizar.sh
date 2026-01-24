@@ -20,7 +20,7 @@ echo -e "\n-----------------------\nActualizando sistema...\n-------------------
 # Probado en Ubuntu-server y Fedora.
 
 sudo apt update -y 2>/dev/null || sudo dnf update -y
-sudo apt upgrade -y 2>/dev/null || sudo dnf upgrade -y
+sudo apt full-upgrade -y 2>/dev/null || sudo dnf full-upgrade -y
 
 
 echo -e "\nActualizacion realizada.\n"
