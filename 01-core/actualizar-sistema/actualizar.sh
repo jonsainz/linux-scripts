@@ -15,6 +15,9 @@ fi
 
 echo -e "\n-----------------------\nActualizando sistema...\n-----------------------\n"
 
+# OPTIMIZACIÓN DE HARDWARE (Vital para tu SSD)
+echo -e "\nOptimizando celdas del SSD...\n"
+sudo fstrim -av
 
 # Actualizar para distribuciones basadas en Debian o RedHat.
 # Probado en Ubuntu-server y Fedora.
@@ -24,6 +27,8 @@ sudo apt full-upgrade -y 2>/dev/null || sudo dnf upgrade -y
 
 
 echo -e "\nActualizacion realizada.\n"
+
+
 
 #---------------------
 # Limpieza de archivos
@@ -52,10 +57,17 @@ sudo rm -rf ~/.cache/thumbnails/* 2>/dev/null
 
 # Archivos de logs
 
-#Esto da error. que es?
-#sudo journalctl --vacumm-size=200M
+sudo journalctl --vacuum-size=200M
 
 # Archivos de Coredumps
 sudo rm -rf /var/lib/systemd/coredump/* 2>/dev/null
 
+
+# ACTUALIZAR BUSCADOR DE ARCHIVOS (Lo que bloqueamos en el arranque)
+echo -e "\nIndexando archivos para el buscador (plocate)...\n"
+sudo updatedb
+
+# Extra: Ver el tiempo de arranque actual
+echo -e "\nTu tiempo de arranque actual es:\n"
+systemd-analyze
 
